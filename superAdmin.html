@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | section</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstap4.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+  </head>
+  <body>
+    <nav
+      class="shadow px-5 py-3 bg-light navbar navbar-expand-md fixed-top black-text"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">SQI SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Product</a>
+            </li>
+          </ul>
+
+          <ul
+            class="text-black gap-5 nav navbar-nav navbar-right d-flex justify-content-around align-items-center"
+          >
+            <!-- <div class="acc-name sign-in hidden" id="sign-in-link">
+          <a href="#" style="text-decoration: none; font-size: 1rem"
+            >Login</a
+          >
+        </div> -->
+
+            <!-- <li class="" id="sign-up-link">
+          <a href="#" style="text-decoration: none"> Sign Up </a>
+        </li> -->
+            <li class="collapse navbar-collapse bg-light">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown-center">
+                  <a
+                    href="#"
+                    class="dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="text-decoration: none"
+                    ><i
+                      class="bi bi-person-circle profileIcon"
+                      style="font-size: 1.6rem"
+                    ></i>
+                    <img src="" class="hidden profileImg" alt="" srcset="" />
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-menu">
+                    <li
+                      class="dropdown-item sign-up acc-name"
+                      id="sign-up-link"
+                    >
+                      <a
+                        href="wp-admin.html"
+                        style="text-decoration: none; font-size: 1rem"
+                        >Sign Up</a
+                      >
+                    </li>
+                    <li
+                      class="dropdown-item sign-in acc-name"
+                      id="sign-in-link"
+                    >
+                      <a
+                        href="wp-admin.html"
+                        style="text-decoration: none; font-size: 1rem"
+                        >Sign in</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item sign-out-link hidden"
+                        href="#"
+                        onclick="signOut()"
+                        >Sign Out</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="">
+              <a href="#" style="text-decoration: none"
+                ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+              ></a>
+            </li>
+
+            <li>
+              <a href="#" class="accountName" style="text-decoration: none"
+                >Account</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- // end of login and sign Up -->
+    <br />
+    <br />
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-xl-3 col-6 col-lg-6">
+          <div class="cardDash l-bg-blue-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Add Products</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8"></div>
+              </div>
+              <button class="btn btn-warning show-modal">
+                Add New Product
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-6 col-lg-12">
+          <div class="cardDash l-bg-cherry">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="mb-1">
+                <h5 class="card-title mb-0">Registered Users</h5>
+              </div>
+              <div class="row align-items-center py-1 d-flex">
+                <div class="col-10">
+                  <h1
+                    class="d-flex justify-content-start reg-users"
+                    id="reg-users"
+                  >
+                    --
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-6">
+          <div class="cardDash l-bg-orange-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Products</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0 products">--</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-6">
+          <div class="cardDash l-bg-green-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Approved Porducts</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0 approvedProducts">
+                    --
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-6">
+          <div class="cardDash l-bg-cherry">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Recived Orders</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0 approvedProducts">
+                    --
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-6">
+          <div class="cardDash l-bg-cyan">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Abandoned cart</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0 approvedProducts">
+                    --
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modalDash hidden admin-edit bg-warning mt-5 w-25 p-4 m-auto border border-warning"
+    >
+      <button class="close-modal p-5">&times;</button>
+      <label for="Product-Name">Product Name</label>
+      <input
+        type="text"
+        name=""
+        class="form-control"
+        id="product-name"
+        placeholder="enter product name"
+      />
+
+      <label for="rela-price">Product First Price</label>
+      <input
+        type="number"
+        name=""
+        class="form-control"
+        id="product_first_price"
+        placeholder="enter product first price"
+      />
+
+      <label for="product_price">Product Discounted Price</label>
+      <input
+        type="number"
+        name=""
+        class="form-control"
+        id="product_discount_price"
+        placeholder="enter product discount Price"
+      />
+
+      <label for="Product_category">Product Category</label>
+      <select name="" class="form-control" id="product_category">
+        <option value="categories">Categories</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Phone Accessories">Phone Accessories</option>
+        <option value="Food">Food</option>
+      </select>
+
+      <label for="product_image">Product Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="product_image"
+        placeholder="Product Image"
+        accept="image/jpeg, image/png, image/jpg"
+      />
+
+      <button
+        class="btn btn-success mt-4 px-4 py-2 m-auto d-flex justify-content-center"
+        onclick="addProduct()"
+      >
+        Add Product
+      </button>
+    </div>
+
+    <div
+      class="modalViewEdit hidden admin-edit bg-warning mt-1 w-50 p-4 m-auto border border-warning"
+    >
+      <button class="close-viewEdit p-5">&times;</button>
+      <div class="row">
+        <div class="col-6">
+          <label for="Product-Name">Product Name</label>
+          <input
+            type="text"
+            name=""
+            class="form-control"
+            id="product-name2"
+            placeholder="enter product name"
+          />
+
+          <label for="rela-price">Product First Price</label>
+          <input
+            type="number"
+            name=""
+            class="form-control"
+            id="product_first_price2"
+            placeholder="enter product first price"
+          />
+
+          <label for="product_price">Product Discounted Price</label>
+          <input
+            type="number"
+            name=""
+            class="form-control"
+            id="product_discount_price2"
+            placeholder="enter product discount Price"
+          />
+
+          <label for="featured">Add/Remove Feautured</label>
+          <select name="" class="form-control" id="featured">
+            <option value="true">Make it feautured</option>
+            <option value="false">Don't Make it feautured</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="Product_category">Product Category</label>
+          <select name="" class="form-control" id="product_category2">
+            <option value="categories">Categories</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Phone Accessories">Phone Accessories</option>
+            <option value="Food">Food</option>
+          </select>
+
+          <label for="product_image"> New Product Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="product_image2"
+            placeholder="Product Image"
+          />
+
+          <label for="product_image">Product Image</label>
+          <img src="" id="ImageUploadLink" width="100%" height="100px" alt="" />
+        </div>
+      </div>
+
+      <div id="updateSection">
+        <!-- <button
+          class="btn btn-success mt-4 px-4 py-2 m-auto d-flex justify-content-center"
+          onclick="UpdateDisplayProducts(i)"
+        >
+          Update
+        </button> -->
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <!----------------------------------- The tabs section --------------------------------------------->
+
+    <ul
+      class="nav nav-pills mb-3 justify-content-center"
+      id="pills-tab"
+      role="tablist"
+    >
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="pills-home-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-home"
+          type="button"
+          role="tab"
+          aria-controls="pills-home"
+          aria-selected="true"
+        >
+          All Products
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-profile-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-profile"
+          type="button"
+          role="tab"
+          aria-controls="pills-profile"
+          aria-selected="false"
+        >
+          Approved Products
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-feutured-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-feutured"
+          type="button"
+          role="tab"
+          aria-controls="pills-feutured"
+          aria-selected="false"
+        >
+          Feautured Products
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="pills-contact-tab"
+          data-bs-toggle="pill"
+          data-bs-target="#pills-contact"
+          type="button"
+          role="tab"
+          aria-controls="pills-contact"
+          aria-selected="false"
+        >
+          registered Users
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-home"
+        role="tabpanel"
+        aria-labelledby="pills-home-tab"
+      >
+        <div class="px-5 mt-5">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <th style="width: 5%">S/N</th>
+              <th class="text-center">Product Name</th>
+              <th class="text-center">Category</th>
+              <th class="text-center">Discount price</th>
+              <th class="text-center">First price</th>
+              <th class="text-center">Posted By</th>
+              <th class="text-center">Edit/View</th>
+              <th class="text-center">Delete</th>
+              <th class="text-center">Approve</th>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-profile"
+        role="tabpanel"
+        aria-labelledby="pills-profile-tab"
+      >
+        <div class="px-5 mt-5">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <th style="width: 5%">S/N</th>
+              <th class="text-center">Product Name</th>
+              <th class="text-center">Category</th>
+              <th class="text-center">Discount price</th>
+              <th class="text-center">First price</th>
+              <th class="text-center">Posted By</th>
+
+              <th class="text-center">Delete</th>
+            </thead>
+            <tbody id="tableBodyApp"></tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-feutured"
+        role="tabpanel"
+        aria-labelledby="pills-feutured-tab"
+      >
+        <div class="px-5 mt-5">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <th style="width: 5%">S/N</th>
+              <th class="text-center">Product Name</th>
+              <th class="text-center">Category</th>
+              <th class="text-center">Discount price</th>
+              <th class="text-center">First price</th>
+              <th class="text-center">Posted By</th>
+              <th class="text-center">Delete</th>
+            </thead>
+            <tbody id="tableFeuture"></tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-contact"
+        role="tabpanel"
+        aria-labelledby="pills-contact-tab"
+      >
+        <div class="px-5 mt-5">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <th style="width: 5%">S/N</th>
+              <th class="text-center">First Name</th>
+              <th class="text-center">Last Name</th>
+              <th class="text-center">email</th>
+              <th class="text-center">Suspend</th>
+            </thead>
+            <tbody id="tableUsers"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        updateProfile,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+        child,
+        remove,
+        get,
+        push,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      import {
+        getStorage,
+        ref as refStorage,
+        uploadBytesResumable,
+        uploadBytes,
+        getDownloadURL,
+        updateMetadata,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAQ2-pliDJUrigCmi-qgcPrNQt7DrnemRI",
+        authDomain: "opic1-93822.firebaseapp.com",
+        projectId: "opic1-93822",
+        storageBucket: "opic1-93822.appspot.com",
+        messagingSenderId: "211784386438",
+        appId: "1:211784386438:web:9504b95654b9c1f2724e07",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const database = getDatabase(app);
+      const EcomProducts = ref(database, "EcomProducts");
+      const EcomUsersId = ref(database, "EcomUsersId");
+      const storage = getStorage(app);
+      const AdminUsersId = ref(database, "AdminUsersId");
+      const ApprovedProduct = ref(database, "ApprovedProduct");
+
+      //const user = auth.currentUser;
+
+      //DELETE A USER
+      // let delRef = ref(database, "ApprovedProduct");
+      // remove(delRef).then(() => {
+      //   console.log("removed");
+      // });
+      //add the products to the array in a numbered form
+
+      let nextItem;
+      let Products;
+      let UserDataBase2;
+      let nextProduct;
+      let ProductApprove;
+
+      alert("Open Dashboard on Dektop screen");
+
+      onValue(EcomProducts, function (snapshot) {
+        Products = snapshot.val();
+        DisplayProducts();
+
+        console.log(Products);
+        if (Products) {
+          nextItem = Products.length;
+          if (nextItem == undefined) {
+            nextItem = Products.length;
+          }
+        } else {
+          nextItem = 0;
+        }
+      });
+
+      //adding products to the approved array
+      onValue(ApprovedProduct, function (snapshot) {
+        ProductApprove = snapshot.val();
+        DisplayApprovedProducts();
+        displayFeautured();
+        console.log(ProductApprove);
+        if (ProductApprove) {
+          nextProduct = ProductApprove.length;
+          if (nextProduct == undefined) {
+            nextProduct.remove();
+          }
+          nextProduct = ProductApprove.length;
+        } else {
+          nextProduct = 0;
+        }
+      });
+
+      onValue(EcomUsersId, function (snapshot) {
+        UserDataBase2 = snapshot.val();
+        if (User) {
+          DisplayUsers();
+        }
+      });
+      // function GenerateCodeBtn() {
+      //   let rand = function () {
+      //     return Math.random().toString(36).substr(2); // remove `0.`
+      //   };
+      //   let UserToken = function () {
+      //     return rand() + rand(); // to make it longer
+      //   };
+      //   return UserToken();
+      // }
+
+      // set(ref(database, "AdminTokens/" + "user"), GenerateCodeBtn());
+      let UserDataBase1;
+      window.addProduct = () => {
+        //collect Product details
+        let product_name = document.getElementById("product-name").value;
+
+        let product_discount_price = document.getElementById(
+          "product_discount_price"
+        ).value;
+        let product_first_price = document.getElementById(
+          "product_first_price"
+        ).value;
+        let product_category =
+          document.getElementById("product_category").value;
+        let productImage = document.getElementById("product_image").files[0];
+        //get the image link
+        let ImageName = product_name + new Date().toJSON();
+        //let start
+
+        //set where you wnat to save the fle in thestorage
+        let ProductPicsLocation = refStorage(
+          storage,
+          "ProductsPics/" + ImageName
+        );
+
+        let ProductPicUpload = uploadBytesResumable(
+          ProductPicsLocation,
+          productImage
+        ).then(() => {
+          console.log("Upload sucessful");
+
+          getDownloadURL(ProductPicsLocation).then((url) => {
+            console.log(url);
+
+            onAuthStateChanged(auth, (user) => {
+              UserDataBase1;
+              let UserID = user.uid;
+
+              onValue(EcomUsersId, (snapshot) => {
+                UserDataBase1 = snapshot.val();
+
+                let Poster = "Admin";
+
+                let ProductArray = {
+                  Name: product_name,
+                  ImageName: ImageName,
+                  firstPrice: product_first_price,
+                  discountPrice: product_discount_price,
+                  category: product_category,
+                  imageLink: url,
+                  postedBy: Poster,
+                  state: "enabled",
+                  featured: "false",
+                };
+
+                //send products details to realtime firebase
+                set(ref(database, "EcomProducts/" + nextItem), ProductArray);
+                //DisplayProducts();
+              });
+            });
+          });
+        });
+
+        //now upload the picture
+
+        // display details on the Admin DOM inside table tag
+      };
+      let User;
+      let AdminDataBase;
+      onAuthStateChanged(auth, (user) => {
+        console.log(user);
+        User = user.uid;
+        console.log(User);
+        DisplayProducts();
+        DisplayApprovedProducts();
+        displayFeautured();
+        DisplayUsers();
+
+        //get the location of the realtim database
+        onValue(AdminUsersId, (snapshot) => {
+          AdminDataBase = snapshot.val();
+          console.log(AdminDataBase);
+          console.log(User);
+          // console.log(AdminDataBase[UserID]);
+          let imageLink = AdminDataBase[`${User}`].profileImgLink;
+          let UserType = AdminDataBase[`${User}`].userType;
+          let FirstName = AdminDataBase[`${User}`].first_name;
+          console.log(FirstName + "who");
+
+          document.querySelector(".accountName").innerText = FirstName;
+          document.querySelector(".profileIcon").classList.add("hidden");
+          document.querySelector(".profileImg").classList.remove("hidden");
+
+          document.querySelector(".profileImg").src = imageLink;
+
+          document.querySelector("#sign-in-link").classList.toggle("hidden");
+          document.querySelector("#sign-up-link").classList.toggle("hidden");
+          document.querySelector(".sign-out-link").classList.toggle("hidden");
+
+          //add product to the DOm while regostering the user who posted or added such product
+        });
+      });
+      let count = 1;
+      let holdUp = [];
+      let hold2 = [];
+      //To delete an entry from the products
+      window.DisplayDelete = (i) => {
+        console.log(i);
+        //get the location
+
+        let EcomRef = ref(database, "EcomProducts/");
+        var list = [];
+        onValue(EcomRef, (snashot) => {
+          list = snashot.val();
+        });
+        list.splice(i, count);
+        console.log(list);
+        set(EcomRef, list);
+
+        DisplayProducts();
+        console.log("removed");
+      };
+
+      //delete from the approved Products list
+      window.ApproveDelete = (i) => {
+        console.log(i);
+        //get the location
+        let EcomRef = ref(database, "ApprovedProduct/");
+        var list = [];
+
+        onValue(EcomRef, (snashot) => {
+          list = snashot.val();
+        });
+        list.splice(i, count);
+        console.log(list);
+        set(EcomRef, list);
+
+        DisplayApprovedProducts();
+      };
+
+      //Edit or view the particular list in a modal
+      window.DisplayModal = (i) => {
+        //populate the imput with the value of the products
+        console.log(Products[i]);
+        document.getElementById("product-name2").value = Products[i].Name;
+        document.getElementById("product_discount_price2").value =
+          Products[i].discountPrice;
+        document.getElementById("product_first_price2").value =
+          Products[i].firstPrice;
+        document.getElementById("product_category2").value =
+          Products[i].category;
+        document.getElementById("featured").value = Products[i].featured;
+        // odcument.getElementById("product_image").value = Products[i].imageLink;
+        document.getElementById("ImageUploadLink").src = Products[i].imageLink;
+        console.log(Products[i].imageLink);
+        //show the overlay and the Input Box
+        document.querySelector(".modalViewEdit").classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        UpdateViewButton(i);
+      };
+
+      let SL;
+      let SelectedProduct;
+      window.UpdateViewButton = (i) => {
+        SL = i;
+        //crete a new update button every time the edit Button is clicked to send to the modal
+        var button = document.createElement("button");
+        button.innerText = "Update";
+        let btnClassName = `update${i}`;
+        button.className = `btn btn-success upBtn d-flex justify-content-center m-auto mt-3 update${i}`;
+        button.addEventListener("click", UpdateAndSet);
+        document.querySelector("#updateSection").appendChild(button);
+        //when the Creted button is clicked set the values in the input field as values to the Products array Variables;
+      };
+      let run = true;
+
+      function UpdateAndSet() {
+        DisplayProducts();
+        console.log(Products + "sui");
+        onValue(EcomProducts, function (snapshot) {
+          SelectedProduct = snapshot.val();
+
+          //set the Values in the Input Tags to the Array Object Varibles
+          SelectedProduct[SL].Name =
+            document.getElementById("product-name2").value;
+          SelectedProduct[SL].discountPrice = document.getElementById(
+            "product_discount_price2"
+          ).value;
+          SelectedProduct[SL].firstPrice = document.getElementById(
+            "product_first_price2"
+          ).value;
+          SelectedProduct[SL].category =
+            document.getElementById("product_category2").value;
+          SelectedProduct[SL].featured =
+            document.getElementById("featured").value;
+          //            SelectedProduct[SL].imageLink = SelectedProduct[SL].imageLink;
+
+          console.log(SelectedProduct);
+          if (document.getElementById("product_image2").files.length == 0) {
+            SelectedProduct[SL].imageLink = SelectedProduct[SL].imageLink;
+            console.log("ohhh");
+            SetValueWithDatabse();
+          } else {
+            let productImage =
+              document.getElementById("product_image2").files[0];
+
+            //upload image to storgae
+            let ProductPicsLocation = refStorage(
+              storage,
+              "ProductsPics/" + SelectedProduct[SL].ImageName
+            );
+
+            let ProductPicUpload = uploadBytesResumable(
+              ProductPicsLocation,
+              productImage
+            ).then(() => {
+              console.log("Upload sucessful");
+              //get the link
+              getDownloadURL(ProductPicsLocation).then((url) => {
+                console.log(url);
+                SelectedProduct[SL].imageLink = url;
+                SetValueWithDatabse();
+                location.reload();
+              });
+              //Products[i].imageLInk  = donloadlinkGenrated
+            });
+            //Now update it to the realtime databse
+          }
+          //If you didnt upload any image
+          //  if you uploaded an image
+        });
+      }
+
+      function SetValueWithDatabse() {
+        set(ref(database, "EcomProducts/" + SL), {
+          //ImageName: SelectedProduct[SL].ImageName,
+          Name: SelectedProduct[SL].Name,
+          firstPrice: SelectedProduct[SL].firstPrice,
+          discountPrice: SelectedProduct[SL].discountPrice,
+          category: SelectedProduct[SL].category,
+          imageLink: SelectedProduct[SL].imageLink,
+          postedBy: SelectedProduct[SL].postedBy,
+          state: "enabled",
+          featured: SelectedProduct[SL].featured,
+        }).then(() => {
+          return "Sucessfully Changed";
+          console.log("chnages feuture");
+        });
+      }
+
+      let loggedUser = true;
+
+      function DisplayProducts() {
+        console.log(User + "  ddde");
+
+        let display = "";
+        for (let b = 0; b < 1; b++) {
+          for (let i in Products) {
+            display += `  <tr>
+                                     <td>${b++}</td>
+                                     <td>${Products[i].Name}</td>
+                                     <td>${Products[i].category}</td>
+                                     <td>${Products[i].discountPrice}</td>
+                                     <td>${Products[i].firstPrice}</td>
+                                   <td>${Products[i].postedBy}</td>
+
+
+                                     <td> <button onclick='DisplayModal(${i})' class="btn btn-warning show-modal"  >Edit/View</button> </td>
+                                     <td><button onclick='DisplayDelete(${i})' class="btn btn-danger">Delete</button></td>
+                                     <td><button onclick='SendToList(${i})' ${
+              Products[i].state
+            } id="approve-btn${i}" class="btn btn-success approve-btn${i}">Approve</button></td>
+                                   </tr>`;
+          }
+          if (User) {
+            document.querySelector(".products").innerHTML = b;
+          }
+        }
+        if (User) {
+          tableBody.innerHTML = display;
+        }
+      }
+
+      function DisplayApprovedProducts() {
+        let display = "";
+        for (let b = 0; b < 1; b++) {
+          for (let i in ProductApprove) {
+            display += `  <tr>
+                                     <td>${b++}</td>
+                                     <td>${ProductApprove[i].Name}</td>
+                                     <td>${ProductApprove[i].category}</td>
+                                     <td>${ProductApprove[i].discountPrice}</td>
+                                     <td>${ProductApprove[i].firstPrice}</td>
+                                   <td>${ProductApprove[i].postedBy}</td>
+
+                                     <td><button onclick='ApproveDelete(${i})' class="btn btn-danger">Delete</button></td>
+
+                                   </tr>`;
+          }
+          if (User) {
+            document.querySelector(".approvedProducts").innerHTML = b;
+          }
+        }
+        if (User) {
+          tableBodyApp.innerHTML = display;
+        }
+      }
+
+      function displayFeautured() {
+        let display = "";
+        for (let b = 0; b < 1; b++) {
+          for (let i in ProductApprove) {
+            if (ProductApprove[i].featured == "true") {
+              // console.log(ProductApprove[i]);
+              display += `  <tr>
+                                     <td>${b++}</td>
+                                     <td>${ProductApprove[i].Name}</td>
+                                     <td>${ProductApprove[i].category}</td>
+                                     <td>${ProductApprove[i].discountPrice}</td>
+                                     <td>${ProductApprove[i].firstPrice}</td>
+                                   <td>${ProductApprove[i].postedBy}</td>
+
+                                     <td><button onclick='ApproveDelete(${i})' class="btn btn-danger">Delete</button></td>
+
+                                   </tr>`;
+            }
+          }
+        }
+        if (User) {
+          tableFeuture.innerHTML = display;
+        }
+      }
+      //  displayFeautured();
+
+      function DisplayUsers() {
+        console.log(UserDataBase2);
+
+        let display = "";
+        for (let b = 0; b < 1; b++) {
+          for (let i in UserDataBase2) {
+            display += `  <tr>
+                                     <td>${b++}</td>
+                                     <td>${UserDataBase2[i].first_name}</td>
+                                     <td>${UserDataBase2[i].last_name}</td>
+                                     <td>${UserDataBase2[i].email}</td>
+                                     <td><button onclick='suspend(${i})' class="btn btn-danger">Suspend</button></td>
+                                   </tr>`;
+          }
+          if (User) {
+            document.querySelector("#reg-users").innerHTML = b;
+          }
+        }
+        if (User) {
+          tableUsers.innerHTML = display;
+        }
+      }
+
+      //when you click approve button send the respective approved items to the approved database
+
+      window.SendToList = (i) => {
+        UpdateApprove(i);
+        console.log(Products);
+
+        //          Products[i].state;
+        //send to approved database by numbering it
+        //set(push(database, "ApprovedProduct/" + i), Products[i]);
+
+        DisplayApprovedProducts();
+        // console.log(Products[i].state);
+
+        set(ref(database, "ApprovedProduct/" + nextProduct), {
+          ...Products[i],
+        });
+        //        const newPostRef = push(postListRef);
+        //        set(newPostRef, Products[i]);
+      };
+
+      //Update the Approve button to make it disabled
+      function UpdateApprove(i) {
+        set(ref(database, "EcomProducts/" + i), {
+          Name: Products[i].Name,
+          firstPrice: Products[i].firstPrice,
+          discountPrice: Products[i].discountPrice,
+          category: Products[i].category,
+          imageLink: Products[i].imageLink,
+          postedBy: Products[i].postedBy,
+          featured: Products[i].featured,
+          state: "disabled",
+        });
+
+        //can you acess the Ecomproducts loaction and alos update it.
+      }
+
+      window.signOut = () => {
+        signOut(auth)
+          .then(() => {
+            document.querySelector(".accountName").innerText = "Account";
+            document.querySelector(".profileIcon").classList.remove("hidden");
+            document.querySelector(".profileImg").classList.add("hidden");
+            // Sign-out successful.
+            document.querySelector("#sign-in-link").classList.toggle("hidden");
+            document.querySelector("#sign-up-link").classList.toggle("hidden");
+            document.querySelector(".sign-out-link").classList.toggle("hidden");
+            window.location.href = "wp-admin.html";
+            console.log("signed Out");
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      };
+
+      const showModal = document.querySelector(".show-modal");
+      const modal = document.querySelector(".modalDash");
+      const modalViewEdit = document.querySelector(".modalViewEdit");
+      const overlay = document.querySelector(".overlay");
+      const closeModal = document.querySelector(".close-modal");
+
+      const closeViewEdit = document.querySelector(".close-viewEdit");
+      const modalbtn = document.getElementsByClassName(".show-modal");
+
+      let modalClose = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+
+      function modalClose2() {
+        modalViewEdit.classList.add("hidden");
+        overlay.classList.add("hidden");
+        const delbtns = document.querySelectorAll(".upBtn");
+        delbtns.forEach((btn) => {
+          btn.remove();
+        });
+      }
+
+      let modalOpen = function () {
+        modal.classList.remove("hidden");
+
+        overlay.classList.remove("hidden");
+      };
+
+      closeModal.addEventListener("click", modalClose);
+      showModal.addEventListener("click", modalOpen);
+      overlay.addEventListener("click", modalClose);
+      overlay.addEventListener("click", modalClose2);
+      closeViewEdit.addEventListener("click", modalClose2);
+
+      //Add product Button function
+    </script>
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | section</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="bootstap4.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+  </head>
+  <body>
+    <nav
+      class="shadow px-5 py-3 bg-light navbar navbar-expand-md fixed-top black-text"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">SQI SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Product</a>
+            </li>
+          </ul>
+
+          <ul
+            class="text-black gap-5 nav navbar-nav navbar-right d-flex justify-content-around align-items-center"
+          >
+            <!-- <div class="acc-name sign-in hidden" id="sign-in-link">
+          <a href="#" style="text-decoration: none; font-size: 1rem"
+            >Login</a
+          >
+        </div> -->
+
+            <!-- <li class="" id="sign-up-link">
+          <a href="#" style="text-decoration: none"> Sign Up </a>
+        </li> -->
+            <li class="collapse navbar-collapse bg-light">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown-center">
+                  <a
+                    href="#"
+                    class="dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="text-decoration: none"
+                    ><i
+                      class="bi bi-person-circle profileIcon"
+                      style="font-size: 1.6rem"
+                    ></i>
+                    <img src="" class="hidden profileImg" alt="" srcset="" />
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-menu">
+                    <li
+                      class="dropdown-item sign-up acc-name"
+                      id="sign-up-link"
+                    >
+                      <a
+                        href="#"
+                        style="text-decoration: none; font-size: 1rem"
+                        onclick="GotoSignUp()"
+                        >Sign Up</a
+                      >
+                    </li>
+                    <li
+                      class="dropdown-item sign-in acc-name"
+                      id="sign-in-link"
+                    >
+                      <a
+                        href="#"
+                        onclick="GotoSignIn()"
+                        style="text-decoration: none; font-size: 1rem"
+                        >Sign in</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item sign-out-link hidden"
+                        href="#"
+                        onclick="signOut()"
+                        >Sign Out</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="">
+              <a href="#" style="text-decoration: none"
+                ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+              ></a>
+            </li>
+
+            <li>
+              <a href="#" class="accountName" style="text-decoration: none"
+                >Account</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <br />
+    <br />
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="cardDash l-bg-blue-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Add Products</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8"></div>
+              </div>
+              <button class="btn btn-warning show-modal">
+                Add New Product
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6">
+          <div class="cardDash l-bg-cherry">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">Products</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0 UserProducts">5</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6">
+          <div class="cardDash l-bg-green-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0 Approved">Approved Porducts</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0">11</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------Product section-------------------------- -->
+    <div class="">
+      <div
+        class="modalDash hidden admin-edit bg-warning mt-5 w-25 p-4 m-auto border border-warning"
+      >
+        <button class="close-modal p-5">&times;</button>
+        <label for="Product-Name">Product Name</label>
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id="product-name"
+          placeholder="enter product name"
+        />
+
+        <label for="rela-price">Product First Price</label>
+        <input
+          type="number"
+          name=""
+          class="form-control"
+          id="product_first_price"
+          placeholder="enter product first price"
+        />
+
+        <label for="product_price">Product Discounted Price</label>
+        <input
+          type="number"
+          name=""
+          class="form-control"
+          id="product_discount_price"
+          placeholder="enter product discount Price"
+        />
+
+        <label for="Product_category">Product Category</label>
+        <select name="" class="form-control" id="product_category">
+          <option value="categories">Categories</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Phone Accessories">Phone Accessories</option>
+          <option value="Food">Food</option>
+        </select>
+
+        <label for="product_image">Product Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="product_image"
+          placeholder="Product Image"
+          accept="image/jpeg, image/png, image/jpg"
+        />
+
+        <button
+          class="btn btn-success mt-4 px-4 py-2 m-auto d-flex justify-content-center"
+          onclick="addProduct()"
+        >
+          Add Product
+        </button>
+      </div>
+    </div>
+
+    <!------------------------------------------ Second Fomr for The view----------------------------- -->
+    <div
+      class="modalViewEdit hidden admin-edit bg-warning mt-3 w-25 p-4 m-auto border border-warning"
+    >
+      <button class="close-viewEdit p-5">&times;</button>
+      <label for="Product-Name">Product Name</label>
+      <input
+        type="text"
+        name=""
+        class="form-control"
+        id="product-name2"
+        placeholder="enter product name"
+      />
+
+      <label for="rela-price">Product First Price</label>
+      <input
+        type="number"
+        name=""
+        class="form-control"
+        id="product_first_price2"
+        placeholder="enter product first price"
+      />
+
+      <label for="product_price">Product Discounted Price</label>
+      <input
+        type="number"
+        name=""
+        class="form-control"
+        id="product_discount_price2"
+        placeholder="enter product discount Price"
+      />
+
+      <label for="Product_category">Product Category</label>
+      <select name="" class="form-control" id="product_category2">
+        <option value="categories">Categories</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Phone Accessories">Phone Accessories</option>
+        <option value="Food">Food</option>
+      </select>
+
+      <label for="product_image"> New Product Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="product_image2"
+        placeholder="Product Image"
+      />
+
+      <label for="product_image">Product Image</label>
+      <img src="" id="ImageUploadLink" width="100%" height="100px" alt="" />
+
+      <div id="updateSection">
+        <!-- <button
+        class="btn btn-success mt-4 px-4 py-2 m-auto d-flex justify-content-center"
+        onclick="UpdateDisplayProducts(i)"
+      >
+        Update
+      </button> -->
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <div class="px-5 mt-5">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <th style="width: 5%">S/N</th>
+          <th class="text-center">Product Name</th>
+          <th class="text-center">Category</th>
+          <th class="text-center">Discount price</th>
+          <th class="text-center">First price</th>
+
+          <th class="text-center">Edit</th>
+          <th class="text-center">Delete</th>
+          <th class="text-center">Status</th>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        updateProfile,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+        child,
+        remove,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      import {
+        getStorage,
+        ref as refStorage,
+        uploadBytesResumable,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAQ2-pliDJUrigCmi-qgcPrNQt7DrnemRI",
+        authDomain: "opic1-93822.firebaseapp.com",
+        projectId: "opic1-93822",
+        storageBucket: "opic1-93822.appspot.com",
+        messagingSenderId: "211784386438",
+        appId: "1:211784386438:web:9504b95654b9c1f2724e07",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const database = getDatabase(app);
+      const EcomProducts = ref(database, "EcomProducts");
+      const storage = getStorage();
+      const EcomUsersId = ref(database, "EcomUsersId");
+
+      //const user = auth.currentUser;
+
+      //add the products to the array in a numbered form
+      let nextItem;
+      let Products;
+      let UserID;
+      let UserDataBase;
+      let UserDataBase1;
+
+      onValue(EcomUsersId, (snapshot) => {
+        UserDataBase = snapshot.val();
+        displayProducts();
+        ShowUserDetails();
+      });
+
+      onValue(EcomProducts, function (snapshot) {
+        Products = snapshot.val();
+        displayProducts();
+        if (Products) {
+          nextItem = Products.length;
+          if (nextItem == undefined || nextItem == NaN) {
+            nextItem = Products.length;
+          }
+        } else {
+          nextItem = 0;
+        }
+      });
+
+      onAuthStateChanged(auth, (user) => {
+        UserID = user.uid;
+        // showUsers();
+      });
+
+      window.addProduct = () => {
+        //collect Product details
+        let product_name = document.getElementById("product-name").value;
+
+        let product_discount_price = document.getElementById(
+          "product_discount_price"
+        ).value;
+        let product_first_price = document.getElementById(
+          "product_first_price"
+        ).value;
+        let product_category =
+          document.getElementById("product_category").value;
+        let productImage = document.getElementById("product_image").files[0];
+        //get the image link
+        let ImageName = product_name + new Date().toJSON();
+        //let start
+
+        //set where you wnat to save the fle in thestorage
+        let ProductPicsLocation = refStorage(
+          storage,
+          "ProductsPics/" + ImageName
+        );
+
+        let ProductPicUpload = uploadBytesResumable(
+          ProductPicsLocation,
+          productImage
+        ).then(() => {
+          console.log("Upload sucessful");
+
+          getDownloadURL(ProductPicsLocation).then((url) => {
+            console.log(url);
+
+            onAuthStateChanged(auth, (user) => {
+              UserID = user.uid;
+
+              onValue(EcomUsersId, (snapshot) => {
+                let UserDataBaseAdd = snapshot.val();
+
+                let Poster =
+                  UserDataBaseAdd[`${UserID}`].first_name +
+                  " " +
+                  UserDataBaseAdd[`${UserID}`].last_name;
+
+                let ProductArray = {
+                  Name: product_name,
+                  firstPrice: product_first_price,
+                  discountPrice: product_discount_price,
+                  category: product_category,
+                  imageLink: url,
+                  ImageName: ImageName,
+                  postedBy: Poster,
+                  state: "false",
+                };
+
+                //send products details to realtime firebase
+                set(
+                  ref(database, "EcomProducts/" + nextItem),
+                  ProductArray
+                ).then((res) => {
+                  console.log("sucessfully added to realtime database");
+                });
+              });
+            });
+          });
+        });
+      };
+
+      function ShowUserDetails() {
+        console.log(UserDataBase);
+        onAuthStateChanged(auth, (user) => {
+          console.log(UserID);
+          //get the location of the realtim database
+          console.log(UserDataBase);
+
+          let imageLink = UserDataBase[`${UserID}`].profileImgLink;
+          let FullName =
+            UserDataBase[`${UserID}`].first_name +
+            " " +
+            UserDataBase[`${UserID}`].last_name;
+
+          console.log(FullName);
+          console.log(imageLink);
+
+          document.querySelector(".accountName").innerText = user.displayName;
+          document.querySelector(".profileIcon").classList.add("hidden");
+          document.querySelector(".profileImg").classList.remove("hidden");
+
+          document.querySelector(".profileImg").src = imageLink;
+
+          document.querySelector("#sign-in-link").classList.toggle("hidden");
+          document.querySelector("#sign-up-link").classList.toggle("hidden");
+          document.querySelector(".sign-out-link").classList.toggle("hidden");
+        });
+      }
+      //add product to the DOm while regostering the user who posted or added such product
+
+      // function showUsers() {}
+      // function showAuth() {}
+
+      function displayProducts() {
+        console.log(UserDataBase);
+        console.log(UserID);
+        let display = "";
+        for (let b = 0; b < 1; b++) {
+          for (let i in Products) {
+            if (
+              Products[i].postedBy ==
+              UserDataBase[`${UserID}`].first_name +
+                " " +
+                UserDataBase[`${UserID}`].last_name
+            ) {
+              display += `  <tr>
+             <td>${b++}</td>
+             <td>${Products[i].Name}</td>
+             <td>${Products[i].category}</td>
+             <td>${Products[i].discountPrice}</td>
+             <td>${Products[i].firstPrice}</td>
+           
+             <td> <button class="btn btn-warning" onclick='DisplayModal(${i})'>View</button> </td>
+             <td><button class="btn btn-danger" onclick='DisplayDelete(${i})'>Delete</button></td>
+             <td><button class="btn btn-info pending"> Pending</button></td>
+           </tr>`;
+            }
+          }
+          document.querySelector(".UserProducts").innerText = b;
+        }
+        tableBody.innerHTML = display;
+      }
+
+      window.DisplayDelete = (i) => {
+        console.log(i);
+
+        //get the location
+        let EcomRef = ref(database, "EcomProducts/" + i);
+        remove(EcomRef).then(() => {
+          console.log("removed");
+        });
+        displayProducts();
+      };
+
+      window.DisplayModal = (i) => {
+        //populate the imput with the value of the products
+        console.log(Products[i]);
+        document.getElementById("product-name2").value = Products[i].Name;
+        document.getElementById("product_discount_price2").value =
+          Products[i].discountPrice;
+        document.getElementById("product_first_price2").value =
+          Products[i].firstPrice;
+        document.getElementById("product_category2").value =
+          Products[i].category;
+        // odcument.getElementById("product_image").value = Products[i].imageLink;
+        document.getElementById("ImageUploadLink").src = Products[i].imageLink;
+        console.log(Products[i].imageLink);
+        //show the overlay and the Input Box
+        document.querySelector(".modalViewEdit").classList.remove("hidden");
+        overlay.classList.remove("hidden");
+        //  UpdateViewButton(i);
+      };
+
+      window.signOut = () => {
+        signOut(auth)
+          .then(() => {
+            document.querySelector(".accountName").innerText = "Account";
+            document.querySelector(".profileIcon").classList.remove("hidden");
+            document.querySelector(".profileImg").classList.add("hidden");
+            // Sign-out successful.
+            document.querySelector("#sign-in-link").classList.toggle("hidden");
+            document.querySelector("#sign-up-link").classList.toggle("hidden");
+            document.querySelector(".sign-out-link").classList.toggle("hidden");
+            console.log("signed Out");
+            window.location = "login.html";
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      };
+
+      const showModal = document.querySelector(".show-modal");
+      const modal = document.querySelector(".modalDash");
+      const modalViewEdit = document.querySelector(".modalViewEdit");
+      const overlay = document.querySelector(".overlay");
+      const closeModal = document.querySelector(".close-modal");
+
+      const closeViewEdit = document.querySelector(".close-viewEdit");
+      const modalbtn = document.getElementsByClassName(".show-modal");
+
+      let modalClose = function () {
+        modal.classList.add("hidden");
+        overlay.classList.add("hidden");
+      };
+
+      function modalClose2() {
+        modalViewEdit.classList.add("hidden");
+        overlay.classList.add("hidden");
+        const delbtns = document.querySelectorAll(".upBtn");
+        delbtns.forEach((btn) => {
+          btn.remove();
+        });
+      }
+
+      let modalOpen = function () {
+        modal.classList.remove("hidden");
+
+        overlay.classList.remove("hidden");
+      };
+
+      closeModal.addEventListener("click", modalClose);
+      showModal.addEventListener("click", modalOpen);
+      overlay.addEventListener("click", modalClose);
+      overlay.addEventListener("click", modalClose2);
+      closeViewEdit.addEventListener("click", modalClose2);
+
+      //make
+
+      //Add product Button function
+    </script>
+
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecomerce Website</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <header data-bs-theme="light">
+      <nav
+        class="w-100 shadow px-2 px-sm-5 py-3 bg-light navbar navbar-expand-md fixed-top black-text"
+      >
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html">SHOP</a>
+
+          <li class="navbar-nav bg-light d-block d-sm-none d-md-none">
+            <ul class="navbar-nav">
+              <li
+                class="nav-item dropdown-center show-modal cartDetails"
+                id="cartDetails"
+                style="text-decoration: none"
+              >
+                <a class="dropdown-toggle" style="text-decoration: none"
+                  ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+                  ><sup class="bg-dark cartCount text-white px-1" id="cartCount"
+                    >0</sup
+                  >
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li
+            class="d-block d-sm-none d-md-none navbar-nav ms-auto mx-4 float-end bg-light"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown-left">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="text-decoration: none"
+                  ><i
+                    class="bi bi-person-circle profileIcon"
+                    style="font-size: 1.6rem"
+                  ></i>
+                  <img src="" class="hidden profileImg" alt="" srcset="" />
+                </a>
+
+                <ul class="dropdown-menu position-absolute top-100 start-50">
+                  <li
+                    class="dropdown-item sign-up acc-name sign-up-link"
+                    id="sign-up-link"
+                  >
+                    <a
+                      href="#"
+                      style="text-decoration: none; font-size: 1rem"
+                      onclick="GotoSignUp()"
+                      >Sign Up</a
+                    >
+                  </li>
+                  <li
+                    class="dropdown-item sign-in acc-name sign-in-link"
+                    id="sign-in-link"
+                  >
+                    <a
+                      href="#"
+                      onclick="GotoSignIn()"
+                      style="text-decoration: none; font-size: 1rem"
+                      >Sign in</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item sign-out-link hidden"
+                      href="#"
+                      onclick="signOut()"
+                      >Sign Out</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link fw-semi bold --bs-dark" href="products.html"
+                  >Product</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="AddProduct.html">Add Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-semi bold --bs-dark" href="wp-admin.html"
+                  >Wp-Admin</a
+                >
+              </li>
+            </ul>
+
+            <ul
+              class="text-black gap-sm-5 gap-2 nav navbar-nav navbar-right d-flex justify-content-around align-items-start align-items-sm-center"
+            >
+              <!-- <div class="acc-name sign-in hidden" id="sign-in-link">
+              <a href="#" style="text-decoration: none; font-size: 1rem"
+                >Login</a
+              >
+            </div> -->
+
+              <!-- <li class="" id="sign-up-link">
+              <a href="#" style="text-decoration: none"> Sign Up </a>
+            </li> -->
+              <li class="d-none d-sm-block d-md-block navbar-collapse bg-light">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown-center">
+                    <a
+                      href="#"
+                      class="dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      style="text-decoration: none"
+                      ><i
+                        class="bi bi-person-circle profileIcon1"
+                        style="font-size: 1.6rem"
+                      ></i>
+                      <img src="" class="hidden profileImg1" alt="" srcset="" />
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu">
+                      <li
+                        class="dropdown-item sign-up-link1 sign-up1 acc-name"
+                        id="sign-up-link"
+                      >
+                        <a
+                          href="#"
+                          style="text-decoration: none; font-size: 1rem"
+                          onclick="GotoSignUp()"
+                          >Sign Up</a
+                        >
+                      </li>
+                      <li
+                        class="sign-in-link1 dropdown-item sign-in1 acc-name"
+                        id="sign-in-link"
+                      >
+                        <a
+                          href="#"
+                          onclick="GotoSignIn()"
+                          style="text-decoration: none; font-size: 1rem"
+                          >Sign in</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item sign-out-link1 hidden"
+                          href="#"
+                          onclick="signOut()"
+                          >Sign Out</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="d-none d-sm-block d-md-block navbar-collapse bg-light">
+                <ul class="navbar-nav">
+                  <li
+                    class="nav-item dropdown-center show-modal cartDetails"
+                    id="cartDetails"
+                    style="text-decoration: none"
+                  >
+                    <a class="dropdown-toggle" style="text-decoration: none"
+                      ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+                      ><sup
+                        class="bg-dark cartCount text-white px-1"
+                        id="cartCount"
+                        >0</sup
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- <li class="">
+                <a href="#" id="cartDetails" style="text-decoration: none"
+                  ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+                  ><sup class="bg-dark text-white px-1" id="cartCount">1</sup>
+                </a>
+              </li> -->
+
+              <li>
+                <a href="#" class="accountName" style="text-decoration: none"
+                  >Account</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active bg-warning">
+          <div class="carousel-space d-flex justify-content-between">
+            <img
+              src="images/product-10-removebg-preview.png"
+              class="justify-content-start mt-5"
+              width="300px"
+              alt=""
+            />
+            <!-- <img
+              src="images/product-2-removebg-preview.png"
+              class="float-center pb-5 align-items-start"
+              width="300px"
+              alt=""
+            /> -->
+            <img
+              src="images/product-2-removebg-preview.png"
+              class="justify-content-end mt-5"
+              width="300px"
+              alt=""
+            />
+          </div>
+
+          <div class="container hero-caption">
+            <div
+              class="carousel-caption m-auto hero-text mb-4 text-dark w-75 text-start p-sm-5 p-3"
+            >
+              <h1>Get the Best Shoes From Our Store</h1>
+              <p>
+                50% discount for first Time customers on Selected Products when
+                you make an Order Between Now and November 2023
+              </p>
+              <p>
+                <a class="btn btn-lg btn-dark" href="products.html"
+                  >check Out Offer</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item bg-wine">
+          <div class="carousel-space d-flex justify-content-between">
+            <img
+              src="images/product-10-removebg-preview.png"
+              class="justify-content-start mt-5"
+              width="300px"
+              alt=""
+            />
+            <!-- <img
+              src="images/product-2-removebg-preview.png"
+              class="float-center pb-5 align-items-start"
+              width="300px"
+              alt=""
+            /> -->
+            <img
+              src="images/product-2-removebg-preview.png"
+              class="justify-content-end mt-5"
+              width="300px"
+              alt=""
+            />
+          </div>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Best Offers on Your T-Shirts</h1>
+              <p>50% off Black Firday Discount Only For Returning Customers</p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="products.html"
+                  >Learn more</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <svg
+            class="bd-placeholder-img"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+          </svg>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>One more for good measure.</h1>
+              <p>
+                Some representative placeholder content for the third slide of
+                this carousel.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="products.html"
+                  >Browse Products</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <section class="bg-light categories-sec py-1">
+      <div class="categories">
+        <h2 id="title">Categories</h2>
+        <div class="small-container m-auto d-flex justify-content-center">
+          <div class="row">
+            <div class="col-sm-4 p-5p-0 p-sm-5 col-10 category-img">
+              <img src="images/category-1.jpg" alt="" />
+              <div class="centered-text-img">
+                <div class="img-text-outer">
+                  <div class="img-text">Shoes</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 p-0 p-sm-5 col-10 category-img">
+              <img src="images/category-2.jpg" alt="" />
+              <div class="centered-text-img">
+                <div class="img-text-outer">
+                  <div class="img-text">Bags</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 col-10 p-0 p-sm-5 category-img">
+              <img src="images/category-3.jpg" alt="" />
+              <div class="centered-text-img">
+                <div class="img-text-outer">
+                  <div class="img-text">Hood</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modalcage">
+      <div class="modalViewEdit mt-5 px-1 py-2 ModalCart hidden bg-light">
+        <button class="close-viewEdit">&times;</button>
+        <div class="bg-light py-4 admin-edit m-auto" id="ModalCart">No Product on Cart</div>
+        
+          <a href="checkout.html" class="btn btn-warning m-auto d-flex justify-content-center"> Checkout  </a>
+       
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <div class="bodyOverlay hidden"></div>
+    <section class="">
+      <div class="small-container">
+        <h2 id="title">Feutured Product</h2>
+        <i class="fa fa-trash text-danger"></i>
+
+        <div class="row featured-section" id="featured-section"></div>
+      </div>
+    </section>
+    <section class="latest-Product mt-5 pt-5">
+      <div class="small-container">
+        <h2 id="title">Latest Product</h2>
+        <div class="row latest-section" id="latest-section"></div>
+      </div>
+    </section>
+
+    <!-- Button trigger modal -->
+
+    <div class="offer mt-5 pt-5 bg-warning">
+      <div class="small-container pb-5">
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <img src="images/exclusive.png" class="img-fluid" alt="" />
+          </div>
+          <div
+            class="col-sm-6 col-12 d-flex flex-column justify-content-center"
+          >
+            <p>Ezclusively Available on Red Store</p>
+            <h1>Smart Band 4</h1>
+            <small
+              >The Mi Smart Band Feutures is a Lagre quality product that Comes
+              at a Low entry Price. It comes with Amoures Color full-touch
+              display.Making it Super cleaer</small
+            >
+            <a href="" class="btn w-sm-25 w-50 btn-dark my-4"
+              >Buy Now <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class=" brands-logo row m-auto my-4">
+      <div class="br col-5  col-sm-2 m-auto">
+        <img class="img-fluid" src="images/logo-godrej.png" alt="" />
+      </div>
+
+      <div class="br col-5  col-sm-2 m-auto">
+        <img class="img-fluid" src="images/logo-coca-cola.png" alt="" />
+      </div>
+
+      <div class="br col-5  col-sm-2 m-auto">
+        <img class="img-fluid" src="images/logo-oppo.png" alt="" />
+      </div>
+
+      <div class="br col-5  col-sm-2 m-auto">
+        <img class="img-fluid" src="images/logo-paypal.png" alt="" />
+      </div>
+
+      <div class="br col-5 col-sm-2 m-auto">
+        <img class="img-fluid" src="images/logo-philips.png" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Trigger the modal with a button -->
+
+    <div class="footer">
+      <div class="small-container">
+        <div class="row m-auto d-flex align-items-center">
+          <div class="footer col-sm-4 col-12 px-2">
+            <h3>Download Our App</h3>
+            <p>Download Our App for mobile and andriod phone</p>
+            <div class="app-logo">
+              <img src="images/play-store.png" alt="" />
+              <img src="images/app-store.png" alt="" />
+            </div>
+          </div>
+          <div class="footer col-sm-3 col-12 px-2">
+            <img src="images/logo-white.png" alt="" />
+            <p>
+              We plan to make digital Products acesible to many without any
+              stress all you need to do is visist us
+            </p>
+          </div>
+          <div class="footer col-sm-2 col-12 px-4">
+            <h6>Useful Links</h6>
+            <ul>
+              <li>Coupon</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer col-sm-2 col-12">
+            <h6>Follow us</h6>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Youtube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copywright">2022 - yusuf crafted themes</p>
+      </div>
+    </div>
+    <!-- Marketing messaging and featurettes
+      ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        updateProfile,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAQ2-pliDJUrigCmi-qgcPrNQt7DrnemRI",
+        authDomain: "opic1-93822.firebaseapp.com",
+        projectId: "opic1-93822",
+        storageBucket: "opic1-93822.appspot.com",
+        messagingSenderId: "211784386438",
+        appId: "1:211784386438:web:9504b95654b9c1f2724e07",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const database = getDatabase(app);
+      const EcomUsersId = ref(database, "EcomUsersId");
+      const user = auth.currentUser;
+      const EcomProducts = ref(database, "EcomProducts");
+      const AdminUsersId = ref(database, "AdminUsersId");
+      const ApprovedProduct = ref(database, "ApprovedProduct");
+
+      let nextItem;
+      onValue(EcomUsersId, function (snapshot) {
+        let myTodoArray = snapshot.val();
+        addDetails();
+        if (myTodoArray) {
+        } else {
+          nextItem = 0;
+        }
+      });
+      let Products;
+      onValue(ApprovedProduct, function (snapshot) {
+        Products = snapshot.val();
+        DisplayLatest();
+        displayFeautured();
+      });
+      let cartCount = 0;
+      let productCount;
+      let recive;
+
+      window.DisplayLatest = () => {
+        let display = "";
+        for (let i in Products) {
+          console.log(Products[i]);
+          display += `<div class="col-10 col-sm-3 product-img text-center m-auto">
+                          <img src="${Products[i].imageLink}" alt="" class="mt-5 img-size mb-4" />
+
+                          <h5>${Products[i].Name}</h5>
+                          <div class="ratings">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                          </div>
+                          <div class="prices d-flex m-auto justify-content-center">
+                            <span class="me-3 text-muted text-decoration-line-through"
+                              >${Products[i].firstPrice}</span
+                            >
+                            <p class="me-3 fw-bold fs-5">${Products[i].discountPrice}</p>
+                          </div>
+
+                          <div class="d-flex w-100 justify-content-around">
+                          <a
+                            ><button class="btn btn-warning form-control"  onclick='Product(${i})'>
+                              <span id="cart-button${i}">Add to Cart</span><i class="bi bi-cart3 px-1 Approved${i}" ></i></button
+                          ></a>
+                          <a href="ProductDetail.html"
+                            ><button class="btn btn-dark form-control text-warning" onclick='ProductDetails(${i})'>
+                              Buy Now </button
+                          ></a>
+                          </div>
+
+
+
+                        </div>`;
+        }
+
+        document.getElementById("latest-section").innerHTML = display;
+      };
+      DisplayLatest();
+
+      let CartArray;
+      if (sessionStorage.CartArray) {
+        //check if we have any cartItem in the local storage
+        //if we have, send the data in the locastorge into the CartRes variable
+        CartArray = JSON.parse(sessionStorage.getItem("CartArray"));
+      } else {
+        //if we do not have anything like Carts in out local storage/Database create a CartArray array
+        CartArray = [];
+        // create a databse location called Cart
+        sessionStorage.setItem("CartArray", JSON.stringify(CartArray));
+      }
+
+      window.Product = (i) => {
+        onValue(ApprovedProduct, function (snapshot) {
+          Products = snapshot.val();
+          productCount = 1;
+          cartCount++;
+
+          document.getElementById(`cart-button${i}`).innerText = "Add More";
+          let CartProducts = Products[i];
+          //to manipulate ans add score key into the object
+          CartProducts.itemCount = 1;
+          //push the last value to the sessionStorage
+
+          //  CartArray.push(CartProducts);
+          //update the session storage
+          let ARR = CartProducts;
+          function CompileCart() {
+            let cc = CartArray.findIndex((e) => e.Name == CartProducts.Name);
+            //cc signifies a index value that name is there
+            console.log(cc);
+            if (cc !== -1) {
+              CartArray[cc].itemCount++;
+              console.log(
+                "i am there",
+                cc,
+                "itemcount" + CartArray[cc].itemCount
+              );
+            }
+            if (cc == -1) {
+              console.log("i am not there", cc, "itemcount");
+              CartArray.push(CartProducts);
+            }
+            console.log(CartArray);
+          }
+          CompileCart();
+
+          sessionStorage.setItem("CartArray", JSON.stringify(CartArray));
+
+          console.log(CartProducts);
+          console.log(CartArray);
+
+          //send to local storage
+          document.querySelectorAll(".cartCount").forEach((e) => {
+            e.innerText = CartArray.length;
+          });
+          console.log(CartArray);
+          displayCarts();
+        });
+      };
+
+      function displayCarts() {
+        CartArray = JSON.parse(sessionStorage.getItem("CartArray"));
+        let disp = ""
+        //display the number of item on cart in the navbar
+        document.querySelectorAll(".cartCount").forEach((e) => {
+          e.innerText = CartArray.length;
+        });
+        for (const i in CartArray) {
+          disp += ` <li
+                              class="d-flex px-2 mt-3 justify-content-between align-items-center"
+                            >
+                              <div class="text px-2 fw-bold f-start">${
+                                CartArray[i].Name
+                              }</div>
+
+                              <div class="Cart-right float-right bg-light">
+                              <div class="text px-5 w-25">${
+                                CartArray[i].itemCount
+                              }</div>
+                             
+                              <i class="fa fa-trash fs-5 w-25 text-danger del-" id="del${[
+                                i,
+                              ]}" aria-hidden="true" onclick="removeCartItem(${i})"></i>
+                              </div>
+                            </li>`;
+        }
+        document.getElementById("ModalCart").innerHTML = disp;
+        document.getElementById("ModalCart").style.textAlign = "center"
+      }
+      displayCarts();
+
+      window.removeCartItem = (i) => {
+        //get students from the loacl storage
+        let CartArray = JSON.parse(sessionStorage.getItem("CartArray"));
+        console.log(CartArray);
+
+        CartArray.splice(i, 1); //delete the on eyou selected
+
+        //update the local storage
+        sessionStorage.setItem("CartArray", JSON.stringify(CartArray));
+        //update the DOM
+        displayCarts();
+      };
+
+      function displayFeautured() {
+        let display = "";
+        for (let i in Products) {
+          console.log(Products[i]);
+          if (Products[i].featured == "true") {
+            display += `<div class="col-10 col-sm-3 product-img text-center m-auto">
+                          <img src="${Products[i].imageLink}" alt="" class=" img-size mt-5 mb-4" />
+
+                          <h5>${Products[i].Name}</h5>
+                          <div class="ratings">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                          </div>
+                          <div class="prices d-flex m-auto justify-content-center">
+                            <span class="me-3 text-muted text-decoration-line-through"
+                              >${Products[i].firstPrice}</span
+                            >
+                            <p class="me-3 fw-bold fs-5">${Products[i].discountPrice}</p>
+                          </div>
+
+                          <div class="d-flex w-100 justify-content-around">
+                          <a
+                            ><button class="btn btn-warning form-control" onclick='Product(${i})'>
+                              <span id="cart-button${i}">Add to Cart</span><i class="bi bi-cart3 px-1 Approved${i}" ></i></button
+                          ></a>
+                          <a href="ProductDetail.html"
+                            ><button class="btn btn-dark form-control text-warning" onclick='ProductDetails(${i})'>
+                              Buy Now </button
+                          ></a>
+                          </div>
+                        </div>`;
+          }
+        }
+        document.getElementById("featured-section").innerHTML = display;
+      }
+      displayFeautured();
+      function addDetails() {
+        onAuthStateChanged(auth, (user) => {
+          let UserDataBase;
+          console.log(user);
+          let UserID = user.uid;
+
+          //get the location of the realtim database
+          onValue(EcomUsersId, (snapshot) => {
+            UserDataBase = snapshot.val();
+            let imageLink = UserDataBase[`${UserID}`].profileImgLink;
+
+            document.querySelector(".accountName").innerText = user.displayName;
+            document.querySelector(".profileIcon").classList.add("hidden");
+            document.querySelector(".profileIcon1").classList.add("hidden");
+            document.querySelector(".profileImg").classList.remove("hidden");
+            document.querySelector(".profileImg1").classList.remove("hidden");
+
+            document.querySelector(".profileImg").src = imageLink;
+            document.querySelector(".profileImg1").src = imageLink;
+
+            document.querySelector(".sign-in-link").classList.add("hidden");
+            document.querySelector(".sign-up-link").classList.add("hidden");
+            document.querySelector(".sign-out-link").classList.remove("hidden");
+            document.querySelector(".sign-in-link1").classList.add("hidden");
+            document.querySelector(".sign-up-link1").classList.add("hidden");
+            document
+              .querySelector(".sign-out-link1")
+              .classList.remove("hidden");
+          });
+        });
+      }
+
+      window.ProductDetails = (i) => {
+        sessionStorage.setItem("picked", i);
+        let getPicked = sessionStorage.getItem("picked");
+        console.log(i);
+      };
+
+      window.signOut = () => {
+        signOut(auth)
+          .then(() => {
+            document.querySelector(".accountName").innerText = "Account";
+            document.querySelector(".profileIcon").classList.remove("hidden");
+            document.querySelector(".profileImg").classList.add("hidden");
+            // Sign-out successful.
+            document.querySelector("#sign-in-link").classList.toggle("hidden");
+            document.querySelector("#sign-up-link").classList.toggle("hidden");
+            document.querySelector(".sign-out-link").classList.toggle("hidden");
+            console.log("signed Out");
+            sessionStorage.removeItem("CartArray");
+            window.location = "login.html";
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      };
+
+      //make use of the user id to locate the extar details of this very user
+
+      // get the immage link
+
+      //replace the profile icon with a circlear image
+
+      // EcomUsersId.user.uid;
+      //        document.getElementById("email-Profile").innerText = user.displayName;
+      const showModal = document.querySelectorAll(".show-modal");
+      const show = document.querySelector(".show");
+      const modal = document.querySelector(".modalDash");
+      const modalViewEdit = document.querySelector(".modalViewEdit");
+      const overlay = document.querySelector(".overlay");
+      const closeModal = document.querySelector(".close-modal");
+
+      const closeViewEdit = document.querySelector(".close-viewEdit");
+      const modalbtn = document.getElementsByClassName(".show-modal");
+
+      let modalClose = function () {
+        modalViewEdit.classList.add("hidden");
+        overlay.classList.add("hidden");
+        //     if (document.getElementsByClassName("show")) {
+        //       document.getElementsByClassName("show")[0].remove();
+        //       document.querySelector(
+        //         ".modalcage"
+        //       ).innerHTML = `<div class="modalViewEdit mt-5 px-2 py-4 ModalCart hidden bg-light">
+        //   <button class="close-viewEdit">&times;</button>
+        //   <div class="bg-light py-4 admin-edit m-auto" id="ModalCart"></div>
+        //   <button class="btn btn-danger m-auto d-flex justify-content-center">
+        //     <a href="checkout.html">Checkout</a>
+        //   </button>
+        // </div>`;
+        //     }
+      };
+
+      //showModal.addEventListener("click", modalOpen);
+      showModal.forEach((e) => {
+        e.addEventListener("click", modalOpen);
+      });
+
+      closeViewEdit.addEventListener("click", modalClose2);
+
+      overlay.addEventListener("click", modalClose2);
+      overlay.addEventListener("click", modalClose);
+
+      function modalClose2() {
+        modalViewEdit.classList.add("hidden");
+        overlay.classList.add("hidden");
+
+        const delbtns = document.querySelectorAll(".upBtn");
+        delbtns.forEach((btn) => {
+          btn.remove();
+        });
+        //     if (document.getElementsByClassName("show")) {
+        //       document.getElementsByClassName("show")[0].remove();
+        //       document.querySelector(
+        //         ".modalcage"
+        //       ).innerHTML = `<div class="modalViewEdit mt-5 px-2 py-4 ModalCart hidden bg-light">
+        //   <button class="close-viewEdit">&times;</button>
+        //   <div class="bg-light py-4 admin-edit m-auto" id="ModalCart"></div>
+        //   <button class="btn btn-danger m-auto d-flex justify-content-center">
+        //     <a href="checkout.html">Checkout</a>
+        //   </button>
+        // </div>`;
+        //     }
+      }
+      function modalOpen() {
+        closeViewEdit.classList.remove("hidden");
+        modalViewEdit.classList.remove("hidden");
+        document.querySelector(".modalcage").style.display = "block";
+        overlay.classList.remove("hidden");
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

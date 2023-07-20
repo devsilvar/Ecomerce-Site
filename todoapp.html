@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="col-7 mx-auto border my-5 shadow-sm">
+      <div class="row mb-3">
+        <div class="col-8 p-4">
+          <div class="mb-3">
+            <label class="form-label">Input Task</label>
+            <input
+              id="myTask"
+              type="text"
+              placeholder="Task"
+              class="form-control mb-3"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Task Due:</label>
+            <input class="form-control" id="dueTime" type="datetime-local" />
+          </div>
+
+          <button class="form-control btn btn-dark" id="addTask">
+            Add Task
+          </button>
+        </div>
+        <div class="col-4 bg-secondary">
+          <h1 class="text-white text-wrap">Opic Task App</h1>
+        </div>
+      </div>
+
+      <table class="table table-bordered table-hover">
+        <thead>
+          <th style="width: 15%">S/N</th>
+          <th class="text-center">Task</th>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+      <button onclick="clicking()" class="btn btn-secondary">Button</button>
+    </div>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDZ908A8pLK8IgexpXXS_cdk6odeozfdJ0",
+        authDomain: "sqi-project1.firebaseapp.com",
+        databaseURL: "https://sqi-project1-default-rtdb.firebaseio.com",
+        projectId: "sqi-project1",
+        storageBucket: "sqi-project1.appspot.com",
+        messagingSenderId: "645864231431",
+        appId: "1:645864231431:web:9b82b7cef2149dac21d0a2",
+        measurementId: "G-9CRH2H144Y",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+
+      const todoRef = ref(database, "myTodos");
+
+      let nextIndex;
+      let myTodoArray;
+      onValue(todoRef, function (snapshot) {
+        myTodoArray = snapshot.val();
+        writeTable();
+
+        if (myTodoArray) {
+          nextIndex = myTodoArray.length;
+        } else {
+          nextIndex = 0;
+        }
+      });
+
+      document.getElementById("addTask").addEventListener("click", function () {
+        let taskTitle = document.getElementById("myTask").value;
+        let taskDue = document.getElementById("dueTime").value;
+        let crDate = new Date().toLocaleString();
+        let taskObject = {
+          task: taskTitle,
+          dueDate: taskDue,
+          creationDate: crDate,
+        };
+
+        console.log(taskObject);
+
+        set(ref(database, "myTodos/" + nextIndex), taskObject).then(
+          (result) => {
+            console.log(result);
+            console.log("set successful");
+          }
+        );
+      });
+
+
+      window.clicking = () => {
+        alert("The button has been clicked");
+      };
+
+      function writeTable() {
+        let table = document.getElementById("tableBody");
+        let display = "";
+        // for(let i =0; i<myTodoArray.length; i++){
+        for (let i in myTodoArray) {
+          let sn = Number(i) + 1;
+          display +=
+            "<tr><td>" +
+            sn +
+            "</td><td>" +
+            myTodoArray[i].task +
+            " </td><td>" +
+            myTodoArray[i].dueDate +
+            "</td><td class='text-warning fw-bold'>Edit</td><td class='text-danger'>Delete</td></tr>";
+        }
+        table.innerHTML = display;
+      }
+    </script>
+  </body>
+</html>

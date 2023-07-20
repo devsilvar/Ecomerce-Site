@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+    <!--external css file linked here-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #008000;
+        z-index: 2;
+      }
+      .logo {
+        font-size: 15px;
+        font-weight: bolder;
+        margin: 10px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .icon {
+        font-size: 20px;
+        margin: 10px;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+      }
+      nav {
+        text-align: right;
+      }
+      nav ul li {
+        list-style-type: none;
+        display: inline-block;
+        margin: -12px 30px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      /*screen with width less than or equal to 576px*/
+      @media only screen and (max-width: 576px) {
+        nav {
+          flex: 1;
+        }
+        nav ul {
+          width: 100%;
+          background-color: #808080;
+          position: absolute;
+          top: 50px;
+          right: 0;
+          z-index: 2;
+        }
+        nav ul li {
+          display: block;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        nav ul li a {
+          color: #ffffff;
+          font-size: 15px;
+        }
+        .icon {
+          display: block;
+        }
+        #menulist {
+          overflow: hidden;
+          transition: 1.5s;
+        }
+        .h1 {
+          max-height: 0px;
+        }
+        .h2 {
+          max-height: 160px;
+        }
+      }
+    </style>
+    <!--font awesome url linked here to enable display font-icon-->
+    <script
+      src="https://kit.fontawesome.com/58b7424050.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <label class="logo"><h1>Logo</h1></label>
+      <nav>
+        <ul id="menulist">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <label class="icon"
+        ><i class="fa fa-bars" onclick="togglemenu()"></i
+      ></label>
+    </div>
+    <script>
+      var menulist = document.getElementById("menulist");
+      menulist.classList.add("h1");
+      function togglemenu() {
+        menulist.classList.toggle("h1");
+        menulist.classList.toggle("h2");
+      }
+    </script>
+  </body>
+</html>

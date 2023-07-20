@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecomerce Website</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body class="form-body">
+    <nav
+      class="shadow px-5 py-3 bg-light navbar navbar-expand-md fixed-top black-text"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">SQI SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Product</a>
+            </li>
+          </ul>
+
+          <ul
+            class="text-black gap-5 nav navbar-nav navbar-right d-flex justify-content-around align-items-center"
+          >
+            <!-- <div class="acc-name sign-in hidden" id="sign-in-link">
+              <a href="#" style="text-decoration: none; font-size: 1rem"
+                >Login</a
+              >
+            </div> -->
+
+            <li class="sign-up" id="sign-up-link">
+              <a href="#" style="text-decoration: none"> Sign Up </a>
+            </li>
+            <li class="collapse navbar-collapse bg-light">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown-center">
+                  <a
+                    href="#"
+                    class="dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="text-decoration: none"
+                    ><i
+                      class="bi bi-person-circle"
+                      style="font-size: 1.6rem"
+                    ></i
+                  ></a>
+
+                  <ul class="dropdown-menu dropdown-menu">
+                    <li
+                      class="dropdown-item sign-up acc-name"
+                      id="sign-up-link"
+                    >
+                      <a
+                        href="signup.html"
+                        style="text-decoration: none; font-size: 1rem"
+                        >Sign Up</a
+                      >
+                    </li>
+                    <li
+                      class="dropdown-item sign-in acc-name hidden"
+                      id="sign-in-link"
+                    >
+                      <a
+                        href="login.html"
+                        style="text-decoration: none; font-size: 1rem"
+                        >Login</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item sign-out hidden"
+                        id="sign-out-link"
+                        href="#"
+                        onclick=""
+                        >Sign Out</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="">
+              <a href="#" style="text-decoration: none"
+                ><i class="bi bi-cart3" style="font-size: 1.6rem"></i
+              ></a>
+            </li>
+
+            <li>
+              <a href="#" style="text-decoration: none">Account</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <main class="form-signin w-75 sign-in m-auto mt-5" id="sign-in">
+      <img
+        class="m-auto d-flex justify-content-center"
+        src="images/iconuser1.png"
+        alt=""
+        width="100"
+        height="100"
+      />
+      <h1 class="h4 mb-3 py-3 fw-normal text-center">Login to Your Account</h1>
+
+      <div
+        class="form border border-dark border-5 border-bottom-0 border-top-0 rounded-top rounded-bottom rounded-start rounded-3"
+      >
+        <label for="email">Email</label> <span id="error"></span>
+        <input type="email" id="L_email" placeholder="Enter your email" />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="L_password"
+          placeholder="Enter your Passsword"
+        />
+
+        <button
+          type="button"
+          class="reg-btn btn-dark btn m-auto d-flex justify-content-center mt-4"
+          onclick="login()"
+        >
+          Login
+        </button>
+      </div>
+
+      <div class="login d-flex text-warning justify-content-center m-auto mb-5">
+        <a href="signup.html" class="text-center py-4"
+          >Are you New? Register Here</a
+        >
+      </div>
+    </main>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        updateProfile,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        onValue,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      import {
+        getStorage,
+        ref as refStorage,
+        uploadBytesResumable,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAQ2-pliDJUrigCmi-qgcPrNQt7DrnemRI",
+        authDomain: "opic1-93822.firebaseapp.com",
+        projectId: "opic1-93822",
+        storageBucket: "opic1-93822.appspot.com",
+        messagingSenderId: "211784386438",
+        appId: "1:211784386438:web:9504b95654b9c1f2724e07",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth();
+      const database = getDatabase(app);
+      const EcomUsersId = ref(database, "EcomUsersId/");
+      const user = auth.currentUser;
+      const storage = getStorage();
+
+      //get users details - details that can be used in the login too or outside
+
+      window.signup = () => {
+        //getting user details
+        let email = document.querySelector("#email").value;
+        let profileImg = document.getElementById("profileImg").files[0];
+        //getting users details
+        let first_name = document.getElementById("fname").value;
+        let password = document.getElementById("password").value;
+        let confirm_password = document.getElementById("Cpassword").value;
+        let last_name = document.getElementById("lname").value;
+        let displayName = document.getElementById("fname").value;
+
+        //create the profile and store to firebase authentication
+        if (confirm_password == password) {
+          createUserWithEmailAndPassword(auth, email, password, displayName)
+            .then((res) => {
+              console.log(res);
+
+              updateProfile(auth.currentUser, {
+                displayName: displayName,
+              }).then(() => {
+                //picture variable
+                profileImg;
+
+                //set the picture to firebase storage location where it is going to be save
+                let ProfileImgLocation = refStorage(
+                  storage,
+                  "userProfilePics/" + email
+                );
+
+                //upload the picture
+                let PicsUpload = uploadBytesResumable(
+                  ProfileImgLocation,
+                  profileImg
+                ).then((result) => {
+                  console.log(result);
+
+                  //get the link to the picture
+                  getDownloadURL(ProfileImgLocation).then((url) => {
+                    console.log(url);
+
+                    let profileImgLink = url;
+                    // create an objaect that hold all the user details
+                    let create_user_db = {
+                      first_name,
+                      last_name,
+                      email,
+                      profileImgLink,
+                    };
+
+                    // Pass all the user details to the realtime database along with the goten link
+                    set(
+                      ref(database, "EcomUsersId/" + res.user.uid),
+                      create_user_db
+                    ).then((results) => {
+                      window.location = "sucesspage.html";
+                    });
+                  });
+                });
+
+                console.log("Sucessfully updated");
+                console.log("signed up");
+              });
+
+              //now update the authetication database with the display name along with all other details when you sign up so that you can use it later to get the user name from the authetication not realtime datatabase
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              //check if email / user already exisists before finally adding everything to firebase
+              if (errorCode == "auth/email-already-in-use") {
+                alert("Accounr Exisist, Login to acess your account");
+              }
+              console.log("error:", errorMessage, "errocode:", errorCode);
+            });
+        } else {
+          alert("The passwords do not correcspond");
+        }
+      };
+
+      window.login = () => {
+        //collect the values of the inout tags to get the details of the user that wnat to sign in
+        let email = document.getElementById("L_email").value;
+        let password = document.getElementById("L_password").value;
+
+        signInWithEmailAndPassword(auth, email, password).then((res) => {
+          let user = res.user;
+          onAuthStateChanged(auth, (user) => {
+            console.log(user);
+            console.log(user.email);
+            localStorage.accessToken = res.user.accessToken;
+            localStorage.uid = res.user.uid;
+            window.location.href = "index.html";
+          });
+        });
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
